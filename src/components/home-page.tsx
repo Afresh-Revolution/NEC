@@ -413,7 +413,7 @@ export default function HomePage({ annualMembershipFee }: { annualMembershipFee:
           <div className="footer-social"><a href="mailto:hello@necnaija.com" aria-label="Email NEC Naija"><Mail size={17} /></a></div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 NEC NAIJA · MADE WITH THE COMMUNITY</span>
+          <span>© 2026 <Link href="/admin" aria-label="NEC administration" style={{ color: "inherit" }}>NEC</Link> NAIJA · MADE WITH THE COMMUNITY</span>
           <span>NO GUARANTEED RETURNS. ALWAYS MEMBER-LED. <b>✳</b></span>
           <a href="#top">BACK TO TOP ↑</a>
         </div>

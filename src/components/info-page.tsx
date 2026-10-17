@@ -278,7 +278,7 @@ export default function InfoPage({
       </section>
       <footer className="inner-footer">
         <Link className="brand" href="/"><BrandMark /><span className="brand-name">NEC <i>NAIJA</i></span></Link>
-        <span>© 2026 NEC NAIJA · A CREATIVE COOPERATIVE FOR NORTHERN NIGERIA</span>
+        <span>© 2026 <Link href="/admin" aria-label="NEC administration">NEC</Link> NAIJA · A CREATIVE COOPERATIVE FOR NORTHERN NIGERIA</span>
         <Link href="/about">About NEC Naija</Link>
       </footer>
     </main>
