@@ -178,12 +178,29 @@ h2 em { color: var(--olive); font-weight: 500; }
 .benefit-list li { display: flex; align-items: center; gap: 10px; font-size: 11px; color: #51564d; }
 .benefit-list svg { color: var(--olive); }
 .fine-print { color: #8e9088; font-size: 9px; margin-top: 14px; }
-.landing-plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 22px; }
-.landing-plan-card { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; padding: 14px; border: 1px solid #dedbd0; background: #f3f0e8; }
+.landing-plan-grid { display: grid; grid-template-columns: 1fr; gap: 9px; margin-top: 22px; max-width: 280px; }
+.landing-plan-card { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; padding: 16px; border: 1px solid #dedbd0; background: #f3f0e8; }
 .landing-plan-card > span { color: #65704b; font: 10px var(--mono); letter-spacing: .06em; }
-.landing-plan-card > b { color: var(--ink); font: 500 25px/1.1 var(--serif); }
+.membership-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 10px; }
+.membership-price b { color: var(--ink); font: 500 28px/1.1 var(--serif); }
+.membership-was { color: #8a6a3a; font: 500 12px var(--sans); letter-spacing: .01em; }
+.membership-was s { color: #9a9d95; text-decoration: line-through; text-decoration-thickness: 1.5px; }
 .landing-plan-card > small { min-height: 36px; color: #5f645a; font-size: 13px; line-height: 1.45; }
 .landing-plan-card .button { min-height: 40px; margin-top: 3px; font-size: 13px; }
+.admin-plain {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: none;
+  appearance: none;
+}
 
 .creative-section { padding-top: 100px; padding-bottom: 102px; background: #e9e7de; }
 .creative-section .section-heading-row h2 { margin-bottom: 0; }
@@ -291,6 +308,8 @@ h2 em { color: var(--olive); font-weight: 500; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding-top: 15px; border-top: 1px solid var(--line); color: #7c8076; font: 8px var(--mono); letter-spacing: .04em; }
 .footer-bottom b { color: #a6813f; }
 .footer-bottom a { color: #51564d; }
+.footer-bottom a.admin-plain,
+.inner-footer a.admin-plain { color: inherit; }
 
 @keyframes ticker { to { transform: translateX(-50%); } }
 @keyframes orbit { to { rotate: 360deg; } }
@@ -444,7 +463,7 @@ h2 em { color: var(--olive); font-weight: 500; }
 .inner-point > svg { color: var(--olive); }
 .inner-membership-plans { max-width: 1040px; margin: 0 auto; padding: 54px 0 12px; }
 .inner-membership-plans > .section-number { margin-bottom: 18px; }
-.inner-membership-plan-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.inner-membership-plan-grid { display: grid; grid-template-columns: minmax(0, 320px); gap: 14px; }
 .inner-membership-plans > p { margin: 14px 0 0; color: #5f645a; font-size: 14px; line-height: 1.6; }
 .public-portfolio-section { padding: 64px max(calc((100vw - 1040px) / 2), 10vw); background: #e9e7de; }
 .public-portfolio-heading { margin-bottom: 24px; }

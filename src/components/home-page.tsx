@@ -116,7 +116,13 @@ function StageArtwork() {
   );
 }
 
-export default function HomePage({ annualMembershipFee }: { annualMembershipFee: string }) {
+export default function HomePage({
+  annualMembershipFee,
+  annualMembershipCompareAt,
+}: {
+  annualMembershipFee: string;
+  annualMembershipCompareAt: string;
+}) {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const reduceMotion = useReducedMotion();
 
@@ -268,7 +274,10 @@ export default function HomePage({ annualMembershipFee }: { annualMembershipFee:
           <div className="landing-plan-grid">
             <article className="landing-plan-card">
                 <span>ANNUAL MEMBERSHIP FEE</span>
-                <b>{annualMembershipFee}</b>
+                <div className="membership-price">
+                  <b>{annualMembershipFee}</b>
+                  <span className="membership-was">was <s>{annualMembershipCompareAt}</s></span>
+                </div>
                 <small>Renews annually · non-refundable under the proposed terms</small>
                 <Link className="button button-dark" href="/login?next=/dashboard">Subscribe <ArrowUpRight size={15} /></Link>
             </article>
@@ -376,7 +385,7 @@ export default function HomePage({ annualMembershipFee }: { annualMembershipFee:
                 <span className="faq-count">0{index + 1}</span><span>{q}</span><ChevronDown size={18} />
               </button>
               <div className="faq-answer"><p>{q === "What does membership cost?"
-                ? `The annual membership fee is ${annualMembershipFee}, separate from monthly cooperative contributions. Fees are subject to approved membership terms.`
+                ? `The annual membership fee is ${annualMembershipFee} (was ${annualMembershipCompareAt}), separate from monthly cooperative contributions. Fees are subject to approved membership terms.`
                 : a}</p></div>
             </Reveal>
           ))}
@@ -413,7 +422,7 @@ export default function HomePage({ annualMembershipFee }: { annualMembershipFee:
           <div className="footer-social"><a href="mailto:hello@necnaija.com" aria-label="Email NEC Naija"><Mail size={17} /></a></div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 <Link href="/admin" aria-label="NEC administration" style={{ color: "inherit" }}>NEC</Link> NAIJA · MADE WITH THE COMMUNITY</span>
+          <span>© 2026 <Link href="/admin" className="admin-plain" aria-label="NEC administration">NEC</Link> NAIJA · MADE WITH THE COMMUNITY</span>
           <span>NO GUARANTEED RETURNS. ALWAYS MEMBER-LED. <b>✳</b></span>
           <a href="#top">BACK TO TOP ↑</a>
         </div>

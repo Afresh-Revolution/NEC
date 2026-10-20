@@ -43,6 +43,7 @@ export default async function Page() {
       userName={user.full_name || user.email}
       applicationStatus={application?.status ?? null}
       annualMembershipFee={annualMembershipFee.amountLabel}
+      annualMembershipCompareAt={annualMembershipFee.compareAtLabel}
       subscription={subscription ?? null}
       checkoutAvailable={checkoutAvailable}
     />

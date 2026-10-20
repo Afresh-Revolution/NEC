@@ -304,11 +304,13 @@ function SubscriptionCountdown({ endDate }: { endDate: string }) {
 
 function MembershipDetailsCard({
   annualMembershipFee,
+  annualMembershipCompareAt,
   subscription,
   canSubscribe,
   checkoutAvailable,
 }: {
   annualMembershipFee: string;
+  annualMembershipCompareAt: string;
   subscription?: PortalMembershipSubscription | null;
   canSubscribe: boolean;
   checkoutAvailable: boolean;
@@ -350,7 +352,10 @@ function MembershipDetailsCard({
       <div className="membership-details-prices">
         <div className={`membership-plan-option${isSubscribed ? " membership-plan-selected" : ""}`}>
           <span>ANNUAL MEMBERSHIP FEE</span>
-          <b>{isSubscribed && subscription ? formatPortalNaira(subscription.amount_minor) : annualMembershipFee}</b>
+          <div className="membership-price">
+            <b>{isSubscribed && subscription ? formatPortalNaira(subscription.amount_minor) : annualMembershipFee}</b>
+            {!isSubscribed ? <span className="membership-was">was <s>{annualMembershipCompareAt}</s></span> : null}
+          </div>
           <small>Renews yearly · proposed fee is non-refundable</small>
           <button
             className="button button-dark membership-subscribe-button"
@@ -389,6 +394,7 @@ function MemberPanel({
   userName,
   applicationStatus,
   annualMembershipFee,
+  annualMembershipCompareAt,
   subscription,
   checkoutAvailable,
 }: {
@@ -396,6 +402,7 @@ function MemberPanel({
   userName?: string;
   applicationStatus?: string | null;
   annualMembershipFee: string;
+  annualMembershipCompareAt: string;
   subscription?: PortalMembershipSubscription | null;
   checkoutAvailable: boolean;
 }) {
@@ -409,6 +416,7 @@ function MemberPanel({
         <div className="portal-alert"><ShieldCheck size={17} /><span><b>Your member space:</b> Your membership details and available services are shown here.</span></div>
         <MembershipDetailsCard
           annualMembershipFee={annualMembershipFee}
+          annualMembershipCompareAt={annualMembershipCompareAt}
           subscription={subscription}
           canSubscribe={Boolean(applicationStatus && ["submitted", "approved"].includes(applicationStatus))}
           checkoutAvailable={checkoutAvailable}
@@ -441,6 +449,7 @@ function MemberPanel({
       <PortalSection title="Your cooperative identity" eyebrow="MEMBERSHIP" description="Your application, membership status and member identity are managed here." icon={<IdCard size={22} />}>
         <MembershipDetailsCard
           annualMembershipFee={annualMembershipFee}
+          annualMembershipCompareAt={annualMembershipCompareAt}
           subscription={subscription}
           canSubscribe={Boolean(applicationStatus && ["submitted", "approved"].includes(applicationStatus))}
           checkoutAvailable={checkoutAvailable}
@@ -2086,6 +2095,7 @@ export default function PortalPreview({
   userName,
   applicationStatus,
   annualMembershipFee,
+  annualMembershipCompareAt,
   subscription,
   checkoutAvailable = false,
   applications: initialApplications = [],
@@ -2095,6 +2105,7 @@ export default function PortalPreview({
   userName?: string;
   applicationStatus?: string | null;
   annualMembershipFee?: string;
+  annualMembershipCompareAt?: string;
   subscription?: PortalMembershipSubscription | null;
   checkoutAvailable?: boolean;
   applications?: PortalApplication[];
@@ -2105,6 +2116,7 @@ export default function PortalPreview({
   const [applications, setApplications] = useState(initialApplications);
   const router = useRouter();
   const fee = annualMembershipFee ?? "₦50,000";
+  const compareAt = annualMembershipCompareAt ?? "₦100,000";
   const title = mode === "member" ? "MEMBER SPACE" : "NATIONAL ADMIN";
 
   return (
@@ -2146,6 +2158,7 @@ export default function PortalPreview({
                 userName={userName}
                 applicationStatus={applicationStatus}
                 annualMembershipFee={fee}
+                annualMembershipCompareAt={compareAt}
                 subscription={subscription}
                 checkoutAvailable={checkoutAvailable}
               />

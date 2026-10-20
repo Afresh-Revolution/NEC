@@ -153,12 +153,14 @@ export type InfoPageKey = keyof typeof pageContent;
 export default function InfoPage({
   page,
   annualMembershipFee,
+  annualMembershipCompareAt,
   portfolios,
   reports,
   publicEvents,
 }: {
   page: InfoPageKey;
   annualMembershipFee?: string;
+  annualMembershipCompareAt?: string;
   portfolios?: PublicPortfolio[];
   reports?: {
     id: string;
@@ -222,7 +224,12 @@ export default function InfoPage({
             {[{ name: "Annual", price: annualMembershipFee, interval: "renews yearly" }].map((plan) => (
               <article className="landing-plan-card" key={plan.name}>
                 <span>{plan.name.toUpperCase()} MEMBERSHIP</span>
-                <b>{plan.price}</b>
+                <div className="membership-price">
+                  <b>{plan.price}</b>
+                  {annualMembershipCompareAt ? (
+                    <span className="membership-was">was <s>{annualMembershipCompareAt}</s></span>
+                  ) : null}
+                </div>
                 <small>{plan.interval} · non-refundable under the proposed terms</small>
                 <Link className="button button-dark" href="/login?next=/dashboard">Subscribe <ArrowUpRight size={15} /></Link>
               </article>
@@ -278,7 +285,7 @@ export default function InfoPage({
       </section>
       <footer className="inner-footer">
         <Link className="brand" href="/"><BrandMark /><span className="brand-name">NEC <i>NAIJA</i></span></Link>
-        <span>© 2026 <Link href="/admin" aria-label="NEC administration">NEC</Link> NAIJA · A CREATIVE COOPERATIVE FOR NORTHERN NIGERIA</span>
+        <span>© 2026 <Link href="/admin" className="admin-plain" aria-label="NEC administration">NEC</Link> NAIJA · A CREATIVE COOPERATIVE FOR NORTHERN NIGERIA</span>
         <Link href="/about">About NEC Naija</Link>
       </footer>
     </main>

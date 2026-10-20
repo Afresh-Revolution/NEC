@@ -3,5 +3,10 @@ import { getAnnualMembershipFee } from "@/lib/membership-plans";
 
 export default function Page() {
   const annualFee = getAnnualMembershipFee();
-  return <HomePage annualMembershipFee={annualFee.amountLabel} />;
+  return (
+    <HomePage
+      annualMembershipFee={annualFee.amountLabel}
+      annualMembershipCompareAt={annualFee.compareAtLabel}
+    />
+  );
 }

@@ -3,6 +3,7 @@ import "server-only";
 export type AnnualMembershipFee = {
   amountMinor: number;
   amountLabel: string;
+  compareAtLabel: string;
 };
 
 function configuredAmount(name: string, fallback: number) {
@@ -25,5 +26,9 @@ function naira(amountMinor: number) {
 
 export function getAnnualMembershipFee(): AnnualMembershipFee {
   const amountMinor = configuredAmount("MEMBERSHIP_ANNUAL_FEE_KOBO", 5_000_000);
-  return { amountMinor, amountLabel: naira(amountMinor) };
+  return {
+    amountMinor,
+    amountLabel: naira(amountMinor),
+    compareAtLabel: naira(amountMinor * 2),
+  };
 }
