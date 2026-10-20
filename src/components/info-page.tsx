@@ -285,7 +285,7 @@ export default function InfoPage({
       </section>
       <footer className="inner-footer">
         <Link className="brand" href="/"><BrandMark /><span className="brand-name">NEC <i>NAIJA</i></span></Link>
-        <span>© 2026 <Link href="/admin" className="admin-plain" aria-label="NEC administration">NEC</Link> NAIJA · A CREATIVE COOPERATIVE FOR NORTHERN NIGERIA</span>
+        <span>© 2026 <Link href="/admin" className="admin-plain" aria-label="NEC administration">NEC</Link> NAIJA · A CREATIVE COOPERATIVE FOR NORTHERN NIGERIA · <a href="https://william-lac.vercel.app" className="admin-plain" target="_blank" rel="noopener noreferrer" aria-label="William's portfolio">W I L L I A M</a></span>
         <Link href="/about">About NEC Naija</Link>
       </footer>
     </main>

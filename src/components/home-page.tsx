@@ -422,7 +422,7 @@ export default function HomePage({
           <div className="footer-social"><a href="mailto:hello@necnaija.com" aria-label="Email NEC Naija"><Mail size={17} /></a></div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 <Link href="/admin" className="admin-plain" aria-label="NEC administration">NEC</Link> NAIJA · MADE WITH THE COMMUNITY</span>
+          <span>© 2026 <Link href="/admin" className="admin-plain" aria-label="NEC administration">NEC</Link> NAIJA · MADE WITH THE COMMUNITY · <a href="https://william-lac.vercel.app" className="admin-plain" target="_blank" rel="noopener noreferrer" aria-label="William's portfolio">W I L L I A M</a></span>
           <span>NO GUARANTEED RETURNS. ALWAYS MEMBER-LED. <b>✳</b></span>
           <a href="#top">BACK TO TOP ↑</a>
         </div>
